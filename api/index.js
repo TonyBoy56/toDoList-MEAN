@@ -8,3 +8,9 @@ var Express = require("express");
 var Mongoclient = require("mongodb").MongoClient;
 var cors = require("cors");
 const multer = require("multer");
+
+// instantiate Express as app, utlize password from .env within CONNETION_STRING. Log result
+var app = Express();
+// app.use(cors());
+var CONNECTION_STRING = `mongodb+srv://antoniocruz5612:${password}@cluster0.ynrw87d.mongodb.net/?retryWrites=true&w=majority`;
+console.log(CONNECTION_STRING);
