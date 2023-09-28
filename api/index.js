@@ -13,11 +13,14 @@ const multer = require("multer");
 var app = Express();
 app.use(cors());
 var CONNECTION_STRING = `mongodb+srv://antoniocruz5612:${password}@cluster0.ynrw87d.mongodb.net/?retryWrites=true&w=majority`;
-console.log(CONNECTION_STRING);
 
+// Establish database and connection
 var DATABASENAME = "todoappdb";
 var database;
 
 app.listen(5038, () => {
-    
+    Mongoclient.connect(CONNECTION_STRING, (error, client) => {
+        database = client.db(DATABASENAME);
+        console.log("Mongo DB Connection Successful");
+    })
 })
